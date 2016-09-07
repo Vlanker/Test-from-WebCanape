@@ -9,6 +9,13 @@
             <h1>Товар</h1>
             <a href="admin">Панель Администратора</a>
             <div>
+                <em>Категория 
+                    <?php foreach($goods as $a): ?>
+                    <?=$a['category_title']?>
+                    <?php break; 
+                    endforeach;
+                    ?> 
+                </em>
                 <table>
                 <tr>
                     <th>Товар</th>
@@ -16,17 +23,20 @@
                     <th>Возможность заказа:</th>
                     <th></th>
                 </tr>
-                <?php
-                    foreach($goods as $a): 
-                        if (0 != $a['goods_active']){ ?>   
+               
+                <?php 
+                foreach($goods as $a): 
+                    if (0 != $a['goods_active']){ 
+                ?> 
                 <tr>
                     <th><?=$a['goods_title']?></th>
-                    <th><?=$a['goods_number']?></th>
+                    <th><?=$a['goods_number']?> (кол-во)</th>
                     <th><?=$a['goods_order']==1?'Заказ возможен':'Заказ не возможен'?></th>
                     <th><a href="good.php?good_id=<?=$a['goods_id']?>">Подробней о товаре</a></th>
                 </tr>
-                <?php   } 
-                    endforeach; ?>   
+                <?php } 
+                    endforeach;
+                ?>   
                 </table>  
             
             </div>

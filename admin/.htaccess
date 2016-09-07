@@ -1,0 +1,4 @@
+AuthType Basic
+AuthName "Admin Pandel"
+AuthUserFile E:/xxampp/htdocs/catalog-site.ru/admin/.htpasswd
+Require valid-user
