@@ -14,6 +14,7 @@
                 <p><?=$categories['category_content']?></p>
             </div>
         </div>
+        <img src="/icons/back.gif" alt="[PARENTDIR]"> <a href="/catalog-site.ru/">Назад</a>
     </div>
 </body>
 </html>

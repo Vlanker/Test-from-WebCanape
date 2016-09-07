@@ -30,9 +30,11 @@
         return $category;
     }
 
-    function goods_all($link){
-	   $query = "SELECT * FROM goods ORDER BY goods.goods_id ASC
-";
+    function goods_all($link, $id_goods){
+        $query = sprintf("SELECT category_goods.category_id, category_goods.goods_id, goods.goods_title, goods.goods_number, goods.goods_order
+                        FROM goods INNER JOIN category_goods ON goods.goods_id = category_goods.goods_id
+                        WHERE (((category_goods.category_id)=%d))", (int)$id_goods);
+	    //$query = "SELECT * FROM goods ORDER BY goods.goods_id ASC";
         $result = mysqli_query($link, $query);
         
         if (!$result){
@@ -50,7 +52,7 @@
     }
     
     function goods_get($link, $id_good){
-	    $query = sprintf("SELECT * FROM goods WHERE goods.goods_id=%d", (int)$id_good);
+        $query = sprintf("SELECT * FROM goods WHERE goods.goods_id=%d", (int)$id_good);
         $result = mysqli_query($link, $query);
         
         if (!$result){

@@ -30,6 +30,7 @@
                 </table>  
             
             </div>
+            <img src="/icons/back.gif" alt="[PARENTDIR]"> <a href="/catalog-site.ru/">Назад</a>
             <footer>
                 Страница: <a href="#">В начало</a>  <a href="#">-</a> <a href="#">1</a><a href="#">2</a><a href="#">3</a> <a href="#">+</a> <a href="#">В конец</a>
             </footer>
