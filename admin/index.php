@@ -4,13 +4,9 @@
 
     $link = db_connect();
     
-    $categories = categories_all($link);
-    $cgoods = cdoods_get($link);
     
     
-    include("../views/categories_admin.php");
-    
-/*
+
     if (isset($_GET['action'])){
         $action=$_GET['action'];
     }
@@ -18,12 +14,13 @@
         $action = "";
     }
 
-    if ($action == "add") {
+    if ($action == "addc") {
         if(!empty($_POST)){
-            articles_new($link, $_POST['title'], $_POST['date'], $_POST['content']);
+            $categories = categories_all($link);
+            category_new($link, $_POST['category_title'], $_POST['category_short_content'], $_POST['category_content'], $_POST['category_active']);
             header("Location: index.php");    
         }
-        include ("../views/article_admin.php");
+        include ("../views/category_admin.php");
     }
     else if($action == "edit"){
         if(!isset($_GET['id'])){
@@ -45,8 +42,10 @@
         header("Location: index.php");    
     }
     else{
-        $articles = articles_all($link);
-        include("../views/articles_admin.php");
-    }*/
+        $categories = categories_all($link);
+        $cgoods = cgoods_get($link);
+         
+        include("../views/categories_admin.php");
+    }
     
 ?>

@@ -84,7 +84,7 @@
     }
     
     function cgoods_get($link){
-        $query = "SELECT category_goods.category_id, goods.goods_title
+        $query = "SELECT category_goods.category_id, goods.goods_title, goods.goods_active
                 FROM goods INNER JOIN category_goods ON goods.goods_id = category_goods.goods_id";    
         $result = mysqli_query($link, $query);
         
@@ -102,25 +102,26 @@
         return $cgoods;
     }
 
-    function articles_new($link, $title, $date, $content){
-       /* $title = trim($title);
+    function category_new($link, $title, $short, $content, $active){
+        $title = trim($title);
         $content = trim($content);
         //Проверка
         if($title == ""){
             return false;
         }
-        $t = "INSERT INTO articles (title, date, content) VALUES ('%s', '%s','%s')";
+        $t = "INSERT INTO category (category_title, category_short_content, category_content, category_active) VALUES ('%s', '%s', '%s', '%s')";
 
         $query = sprintf($t, 
                          mysqli_real_escape_string($link, $title), 
-                         mysqli_real_escape_string($link, $date),
-                         mysqli_real_escape_string($link, $content));
+                         mysqli_real_escape_string($link, $short),
+                         mysqli_real_escape_string($link, $content),
+                         mysqli_real_escape_string($link, $active));
        
         $result = mysqli_query($link, $query);
 
         if(!$result)
             die(mysqli_error($link));
-        return true;*/
+        return true;
     }
 
     function article_edit($link, $id, $title, $date, $content){
