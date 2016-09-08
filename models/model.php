@@ -30,7 +30,7 @@
         return $category;
     }
 
-    function goods_all($link, $id_goods){
+    function goods_alls($link, $id_goods){
         $query = sprintf("SELECT category_goods.category_id, category_goods.goods_id, goods.goods_title, goods.goods_active, goods.goods_number, goods.goods_order, category.category_title
                         FROM category INNER JOIN (goods INNER JOIN category_goods ON goods.goods_id = category_goods.goods_id) ON category.category_id = category_goods.category_id
                         WHERE category_goods.category_id=%d", (int)$id_goods);
@@ -81,7 +81,25 @@
             $gcats[] = $row;
         }
         return $gcats;
+    }
+    
+    function cgoods_get($link){
+        $query = "SELECT category_goods.category_id, goods.goods_title
+                FROM goods INNER JOIN category_goods ON goods.goods_id = category_goods.goods_id";    
+        $result = mysqli_query($link, $query);
         
+        if (!$result){
+            die(mysqli_error($link));
+        }
+        
+        $n = mysqli_num_rows($result);
+        $cgoods = array();
+        
+        for ($i = 0; $i < $n; $i++){
+            $row = mysqli_fetch_assoc($result);
+            $cgoods[] = $row;
+        }
+        return $cgoods;
     }
 
     function articles_new($link, $title, $date, $content){

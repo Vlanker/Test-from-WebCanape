@@ -4,9 +4,11 @@
 
     $link = db_connect();
     
-    $categories = catigories_all($link);
+    $categories = categories_all($link);
+    $cgoods = cdoods_get($link);
     
-    include("../views/categories_admin.php")
+    
+    include("../views/categories_admin.php");
     
 /*
     if (isset($_GET['action'])){

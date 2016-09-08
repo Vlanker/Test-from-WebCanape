@@ -6,26 +6,33 @@
     </head>
     <body>
         <div class="container">
-            <h1>Выберите категорию для вывода списка товара:</h1>
-            <a href="admin">Панель Администратора</a>
+            <h1>Панель администратора: список категорий</h1>
             <div>
                 <table>
                 <tr>
-                    <th>Категории</th>
+                    <th>Название категории</th>
+                    <th>Короткое описание</th>
+                    <th>Полное описание</th>
+                    <th>Активность категории</th>
+                    <th>Товары в категории</th>
+                    <th></th>
                     <th></th>
                 </tr>
-               
-                <?php 
-                foreach($categories as $a): 
-                     if (0 != $a['category_active']) { 
-                ?> 
+                <?php foreach($categories as $a): ?>
                 <tr>
-                    <th><a href="goods.php?category_goods_id=<?=$a['category_id']?>"> <?=$a['category_title']?></a></th>
-                    <th><a href="category.php?category_id=<?=$a['category_id']?>" ><em>Подробнее о категории</em></a></th>
-                </tr>
-                <?php } 
-                    endforeach;
-                ?>   
+                    <td><?=$a['category_title']?></td>
+                    <td><?=$a['category_short_content']?></td>
+                    <td><?=$a['category_content']?></td>
+                    <td><?=$a['category_active']!=0?'Активна':'Не акативна'?></td>
+                    <td>
+                    <?php foreach($cgoods as $b): ?>
+                    <?=$b['goods_title']:'Ошибка'?>
+                    <?php endforeach; ?> 
+                    </td>
+                    <td><a href="index.php?action=edit&id=<?=$a['category_id']?>">Редактировать</a></td>
+                    <td><a href="index.php?action=delete&id=<?=$a['category_id']?>">Удалить</a></td>
+                </tr> 
+                <?php endforeach; ?>  
                 </table>  
             </div>
             <footer>
