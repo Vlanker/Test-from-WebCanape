@@ -109,6 +109,9 @@
         if($title == ""){
             return false;
         }
+        
+        $active == 'on'?$active='1':$active='0';
+        
         $t = "INSERT INTO category (category_title, category_short_content, category_content, category_active) VALUES ('%s', '%s', '%s', '%s')";
 
         $query = sprintf($t, 
@@ -124,21 +127,23 @@
         return true;
     }
 
-    function article_edit($link, $id, $title, $date, $content){
-       /* $title = trim($title);
+    function category_edit($link, $id, $title, $short, $content, $active){
         $id = trim($id);
-        $date = trim($date);
+        $title = trim($title);
+        $short = trim($short);
         $content = trim($content);
+        $active = trim($active);
         
         if($title == ""){
             return false;
         }
-        $sql = "UPDATE articles SET title = '%s', content = '%s', date = '%s' WHERE articles.id = %d";
+        $sql = "UPDATE category SET category_title = '%s', category_short_content = '%s', category_content = '%s', category_active = '%s' WHERE category.category_id = %d";
         
         $query = sprintf($sql, 
                          mysqli_real_escape_string($link, $title), 
+                         mysqli_real_escape_string($link, $short),
                          mysqli_real_escape_string($link, $content),
-                         mysqli_real_escape_string($link, $date),
+                         mysqli_real_escape_string($link, $active),
                          $id);
                 
         
@@ -147,7 +152,7 @@
          if(!$result)
              die(mysqli_error($link));
         
-        return mysqli_affected_rows($link);*/
+        return mysqli_affected_rows($link);
     }
 
     function articles_delete($link, $id){
