@@ -7,7 +7,7 @@
     <body>
         <div class="container">
             <h1>Выберите категорию для вывода списка товара:</h1>
-            <a href="admin">Панель Администратора</a>
+            <a href="admin">Панель Администратора</a><br><br>
             <div>
                 <table>
                 <tr>
@@ -27,7 +27,7 @@
                     endforeach;
                 ?>   
                 </table>  
-            </div>
+            </div><br>
             <footer>
                 Страница: <a href="#">В начало</a>  <a href="#">-</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">+</a> <a href="#">В конец</a>
             </footer>

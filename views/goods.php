@@ -7,15 +7,9 @@
     <body>
         <div class="container">
             <h1>Товар</h1>
-            <a href="admin">Панель Администратора</a>
+            <a href="admin">Панель Администратора</a><br><br>
             <div>
-                <em>Категория 
-                    <?php foreach($goods as $a): ?>
-                    <?=$a['category_title']?>
-                    <?php break; 
-                    endforeach;
-                    ?> 
-                </em>
+                <em>Категория: <?=$goods[0]['category_title']?></em>
                 <table>
                 <tr>
                     <th>Товар</th>
