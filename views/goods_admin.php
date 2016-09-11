@@ -13,23 +13,27 @@
     <div>
         <table>
         <tr>
-            <th>Название категории</th>
+            <th>Название товара</th>
             <th>Короткое описание</th>
             <th>Полное описание</th>
             <th>Активность категории</th>
+            <th>Количество товара</th>
+            <th>Возможность заказать</th>
             <th>Товары в категории</th>
             <th></th>
             <th></th>
         </tr>
-        <?php foreach($categories as $a): ?>
+        <?php foreach($goods as $a): ?>
         <tr>
-            <td><?=$a['category_title']?></td>
-            <td><?=$a['category_short_content']?></td>
-            <td><?=$a['category_content']?></td>
-            <td><?=$a['category_active']!=0?'Активна':'Не акативна'?></td>
+            <td><?=$a['goods_title']?></td>
+            <td><?=$a['goods_short_content']?></td>
+            <td><?=$a['goods_content']?></td>
+            <td><?=$a['goods_active']!=0?'Активна':'Не акативна'?></td>
+            <td><?=$a['goods_number']!=0?></td>
+            <td><?=$a['goods_order']!=0?'Возможна':'Не возможна'?></td>
             <td>
-                <?php foreach($cgoods as $b): ?>
-                    <?=$a['category_id']==$b['category_id']?'['.$b['goods_title'].($b['goods_active']?'(Актив.)]':'(Не актив.)]'):''?>
+                <?php foreach($gcategories as $b): ?>
+                    <?=$a['goods_id']==$b['goods_id']?'['.$b['category_title'].($b['category_active']?'(Актив.)]':'(Не актив.)]'):''?>
                 <?php endforeach; ?> 
             </td>
             <td><a href="index.php?action=edit&id=<?=$a['category_id']?>">Редактировать</a></td>

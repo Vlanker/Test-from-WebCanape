@@ -10,10 +10,15 @@
         $action = "";
     }
     
-    if ($action == "addc") {
+    if ($action == "add_category") {
 
         if(!empty($_POST)){            
-            category_new($link, $_POST['category_title'], $_POST['category_short_content'], $_POST['category_content'], $_POST['category_active']);
+            category_new($link,
+                         $_POST['category_title'],
+                         $_POST['category_short_content'],
+                         $_POST['category_content'],
+                         $_POST['category_active']);
+
             header("Location: index.php");    
         }
 
@@ -28,17 +33,25 @@
         $id = (int)$_GET['id'];
 
         if(!empty($_POST) && $id > 0){
-            category_edit($link, $id, $_POST['category_title'], $_POST['category_short_content'], $_POST['category_content'], $_POST['category_active']);
+            category_edit($link,
+                          $id,
+                          $_POST['category_title'],
+                          $_POST['category_short_content'],
+                          $_POST['category_content'],
+                          $_POST['category_active']);
+
             header("Location: index.php");    
         }
 
-        $category = category_get($link, $id); 
+        $category = category_get($link, $id);
 
-        include ("../views/category_admin.php");
+        include ("../views/category_admin_edit.php");
 
     } else if($action == "delete"){
         $id = $_GET['id'];
-        $articles = articles_delete($link, $id);   
+
+        $category = category_delete($link, $id);   
+
         header("Location: index.php");    
     } else{
         $categories = categories_all($link);

@@ -17,8 +17,8 @@
         return $categories;
     }
 
-    function category_get($link, $id_category){
-	    $query = sprintf("SELECT * FROM category WHERE category.category_id = %d", (int)$id_category);
+    function category_get($link, $id){
+	    $query = sprintf("SELECT * FROM category WHERE category.category_id = %d", (int)$id);
         $result = mysqli_query($link, $query);
         
         if (!$result){
@@ -110,7 +110,7 @@
             return false;
         }
         
-        $active == 'on'? $active='1':$active='0';
+        $active == 'on' ? $active='1' : $active='0';
         
         $sql = "INSERT INTO category (category_title, category_short_content, category_content, category_active) 
                 VALUES ('%s', '%s', '%s', '%s')";
@@ -123,14 +123,14 @@
        
         $result = mysqli_query($link, $query);
 
-        if(!$result){
+        if(!$result)
             die(mysqli_error($link));
-        }
+        
         return true;
     }
 
     function category_edit($link, $id, $title, $short, $content, $active){
-        $id = trim($id);
+       
         $title = trim($title);
         $short = trim($short);
         $content = trim($content);
@@ -139,17 +139,17 @@
         if($title == ""){
             return false;
         }
-        $active == 'on' ? $active = 1 : $active = 0;
+
+        $active == 'on' ? $active='1' : $active='0';
         
-        $sql = "UPDATE category 
-                SET category_title = %s, category_short_content = %s, category_content = %s, category_active = %s 
+        $sql = "UPDATE category SET category_title = '%s', category_short_content = '%s', category_content = '%s', category_active = '%s' 
                 WHERE category.category_id = %d";
         
-        $query = sprintf($sql, 
-                         mysqli_real_escape_string($link, $title), 
+        $query = sprintf($sql,
+                         mysqli_real_escape_string($link, $title),
                          mysqli_real_escape_string($link, $short),
                          mysqli_real_escape_string($link, $content),
-                         mysqli_real_escape_string($link, $date),
+                         mysqli_real_escape_string($link, $active),
                          $id);
         
         $result = mysqli_query($link, $query);
@@ -161,7 +161,7 @@
         return mysqli_affected_rows($link);
     }
 
-    function articles_delete($link, $id){
+    function category_delete($link, $id){
         $id = (int)$id;
         
         if($id == 0)
