@@ -8,8 +8,8 @@
 <div class="container">
     <h1>Панель администратора: список категорий</h1>
     <h3><a href="index.php?goods">[Список товаров]</a> <a href="index.php?category_goods">[Связи категорий с товарами]</a></h3>
-    <img src="/icons/back.gif" alt="[PARENTDIR]"> <a href="/catalog-site.ru">Назад</a><br />
-    <a href="index.php?action=add_category">Добавить статью</a>
+    <img src="/icons/back.gif" alt="[PARENTDIR]"> <a href="/catalog-site.ru">Главная</a><br /><br />
+    <a href="index.php?action=add">Добавить статью</a>
     <div>
         <table>
         <tr>

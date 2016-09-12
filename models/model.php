@@ -17,6 +17,24 @@
         return $categories;
     }
 
+    function goods_all($link){
+        $query = "SELECT * FROM goods ORDER BY goods.goods_id ASC";
+        $result = mysqli_query($link, $query);
+        
+        if (!$result){
+            die(mysqli_error($link));
+        }
+        
+        $n = mysqli_num_rows($result);
+        $goods = array();
+        
+        for ($i = 0; $i < $n; $i++){
+            $row = mysqli_fetch_assoc($result);
+            $goods[] = $row;
+        }
+        return $goods;
+    }
+
     function category_get($link, $id){
 	    $query = sprintf("SELECT * FROM category WHERE category.category_id = %d", (int)$id);
         $result = mysqli_query($link, $query);
@@ -63,10 +81,9 @@
         return $good;
     }
     
-    function gcategories_get($link, $id_gcats){
-        $query = sprintf("SELECT category.category_title, category.category_active, category.category_id
-                          FROM category INNER JOIN category_goods ON category.category_id = category_goods.category_id
-                          WHERE category_goods.goods_id=%d", (int)$id_gcats);
+    function gcategories_get($link){
+        $query = sprintf("SELECT category_goods.goods_id, category.category_title, category.category_active
+                          FROM category INNER JOIN category_goods ON category.category_id = category_goods.category_id");
         $result = mysqli_query($link, $query);
         
         if (!$result){
@@ -74,13 +91,13 @@
         }
         
         $n = mysqli_num_rows($result);
-        $gcats = array();
+        $gcategories = array();
         
         for ($i = 0; $i < $n; $i++){
             $row = mysqli_fetch_assoc($result);
-            $gcats[] = $row;
+            $gcategories[] = $row;
         }
-        return $gcats;
+        return $gcategories;
     }
     
     function cgoods_get($link){

@@ -7,7 +7,7 @@
 <body>
 <div class="container">
 <h1>Панель администратора: добавление категорий</h1>
-<img src="/icons/back.gif" alt="[PARENTDIR]"> <a href="/catalog-site.ru/admin/">Назад</a>
+<img src="/icons/back.gif" alt="[PARENTDIR]"> <a href="/catalog-site.ru/admin/">Назад</a><br />
     <div>
         <form method="post" action="index.php?action=<?=$_GET['action']?>">
             <label>Название категории<br /><input type="text" name="category_title" value="" class="form-item" autofocus required style="width: 1144px"> </label><br />
