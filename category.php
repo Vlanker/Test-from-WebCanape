@@ -2,6 +2,6 @@
     require_once("database.php");
     require_once("models/model.php");    
     $link = db_connect();
-    $categories = category_get($link, $_GET['category_id']);
+    $category = category_get($link, $_GET['id']);
     include("views/category.php");
 ?>

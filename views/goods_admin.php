@@ -9,7 +9,7 @@
     <h1>Панель администратора: список товаров</h1>
     <h3><a href="/catalog-site.ru/admin/index.php">[Список категорий]</a> <a href="index.php?category_goods">[Связи категорий с товарами]</a></h3>
     <img src="/icons/back.gif" alt="[PARENTDIR]"> <a href="/catalog-site.ru">Главная</a><br><br>
-    <a href="index.php?goods&action=add">Добавить статью</a>
+    <a href="index.php?goods=true&action=add">Добавить товар</a>
     <div>
         <table>
         <tr>
@@ -28,16 +28,16 @@
             <td><?=$a['goods_title']?></td>
             <td><?=$a['goods_short_content']?></td>
             <td><?=$a['goods_content']?></td>
-            <td><?=$a['goods_active']!=0?'Активен':'Не акативен'?></td>
-            <td><?=$a['goods_number']!=0?></td>
-            <td><?=$a['goods_order']!=0?'Возможен':'Не возможен'?></td>
+            <td><?=$a['goods_active'] != 0 ? 'Активен' : 'Не акативен'?></td>
+            <td><?=$a['goods_number']?></td>
+            <td><?=$a['goods_order'] != 0 ? 'Возможен' : 'Не возможен'?></td>
             <td>
                 <?php foreach($gcategoties as $b): ?>
-                    <?=$a['goods_id']==$b['goods_id']?'['.$b['category_title'].($b['category_active']?'(Актив.)]':'(Не актив.)]'):''?>
+                    <?=$a['goods_id'] == $b['goods_id'] ?'['.$b['category_title'].($b['category_active']?'(Актив.)]':'(Не актив.)]'):''?>
                 <?php endforeach; ?> 
             </td>
-            <td><a href="index.php?goods&action=edit_g&id=<?=$a['goods_id']?>">Редактировать</a></td>
-            <td><a href="index.php?goods&action=delet_g&id=<?=$a['goods_id']?>">Удалить</a></td>
+            <td><a href="index.php?goods=true&action=edit&id=<?=$a['goods_id']?>">Редактировать</a></td>
+            <td><a href="index.php?goods=true&action=delete&id=<?=$a['goods_id']?>">Удалить</a></td>
         </tr> 
         <?php endforeach; ?>  
         </table>  
