@@ -14,7 +14,7 @@
             <br><label>Короткое описание<br /><textarea class="form-item" name="goods_short_content" required style="height:100px; width: 1144px"></textarea></label><br />
             <br> <label>Полное описание<br><textarea class="form-item" name="goods_content" required style="height:255px; width: 1144px"></textarea></label><br />
             <label>Активность товара<input type="checkbox" name="goods_active" values=""></label>
-            <label>Количество товара: <input type="text" name="goods_number" value="" class="form-item" autofocus required style="width: 255px"></label>
+            <label>Количество товара: <input type="number"  min="0" name="goods_number" value="" class="form-item" autofocus required style="width: 255px"></label>
             <label>Возможность заказа<input type="checkbox" name="goods_order" values=""></label><br />
             <br><input type="submit" value="Сохранить" class="btn" required>
         </form>      

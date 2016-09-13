@@ -272,7 +272,7 @@
         }
         
         $active == 'on' ? $active = '1' : $active = '0';
-        
+        $order == 'on' ? $order = '1' : $order = '0';
 
         $sql = "INSERT INTO goods (goods_title, goods_short_content, goods_content,
                                    goods_active, goods_number, goods_order) 

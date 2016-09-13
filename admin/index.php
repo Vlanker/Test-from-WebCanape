@@ -15,6 +15,21 @@
   } else {
     $isGoods = "";
   }
+
+  if (isset($_GET['in'])){
+    $isGoods = $_GET['in'];
+  } else {
+    $isGoods = "";
+  }
+/********** in ************/
+
+
+
+/********** end in ********/
+
+
+
+
 /********* goods *********/
   if ($isGoods && $action == "add"){
     if(!empty($_POST)){            
@@ -121,4 +136,6 @@
   }
 
 /********* end categories *************/
+
+
 ?>

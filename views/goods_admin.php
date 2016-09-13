@@ -7,7 +7,10 @@
 <body>
 <div class="container">
     <h1>Панель администратора: список товаров</h1>
-    <h3><a href="/catalog-site.ru/admin/index.php">[Список категорий]</a> <a href="index.php?category_goods">[Связи категорий с товарами]</a></h3>
+    <h3>
+        <a href="/catalog-site.ru/admin/index.php">[Список категорий]</a>
+        <a href="index.php?in=true">[Связи категорий с товарами]</a>
+    </h3>
     <img src="/icons/back.gif" alt="[PARENTDIR]"> <a href="/catalog-site.ru">Главная</a><br><br>
     <a href="index.php?goods=true&action=add">Добавить товар</a>
     <div>
@@ -19,7 +22,7 @@
             <th>Активность товара</th>
             <th>Количество товара</th>
             <th>Заказать</th>
-            <th>Товары в категории</th>
+            <th>Товар в категориях</th>
             <th></th>
             <th></th>
         </tr>
