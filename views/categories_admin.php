@@ -30,8 +30,8 @@
             <td><?=$a['category_content']?></td>
             <td><?=$a['category_active']!=0?'Активна':'Не акативна'?></td>
             <td>
-                <?php foreach($cgoods as $b): ?>
-                    <?=$a['category_id']==$b['category_id']?'['.$b['goods_title'].($b['goods_active']?'(Актив.)]':'(Не актив.)]'):''?>
+                <?php foreach($goods as $g): ?>
+                    <?=$a['category_id'] == $g['category_id']? 'false' : 'true' //.$b['goods_title'].($b['goods_active']?'(Актив.)]':'(Не актив.)]'):''?>
                 <?php endforeach; ?> 
             </td>
             <td><a href="index.php?action=edit&id=<?=$a['category_id']?>">Редактировать</a></td>

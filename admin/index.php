@@ -114,7 +114,7 @@
     header("Location: index.php");    
   } else if(!$isGoods){
     $categories = categories_all($link);
-    $cgoods = cgoods_get($link);
+    $goods = category_goods_all($link);//нада так
      
     include("../views/categories_admin.php");
   }

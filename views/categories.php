@@ -20,8 +20,8 @@
                      if (0 != $a['category_active']) { 
                 ?> 
                 <tr>
-                    <th><a href="goods.php?id=<?=$a['category_id']?>"> <?=$a['category_title']?></a></th>
-                    <th><a href="category.php?id=<?=$a['category_id']?>" ><em>Подробнее о категории</em></a></th>
+                    <th><a href="goods.php?category=<?=$a['category_id']?>"> <?=$a['category_title']?></a></th>
+                    <th><a href="category.php?category=<?=$a['category_id']?>" ><em>Подробнее о категории</em></a></th>
                 </tr>
                 <?php } 
                     endforeach;

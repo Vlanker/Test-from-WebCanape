@@ -16,17 +16,17 @@
                 
                 <p>Товар находится в следующих категориях:</p> 
                 <?php 
-                    foreach($gcats as $a): 
-                        if (0 != $a['category_active']) { 
+                foreach($categories as $a): 
+                    if (0 != $a['category_active']) { 
                 ?> 
-                <a href="goods.php?category_goods_id=<?=$a['category_id']?>"><?=$a['category_title']?></a>
-                <?php   } 
-                    endforeach;
+                <a href="goods.php?category=<?=$a['category_id']?>"><?=$a['category_title']?></a>
+                <?php } 
+                endforeach;
                 ?> 
                 </a>    
             </div>
         </div>
-        <img src="/icons/back.gif" alt="[PARENTDIR]"> <a href="/catalog-site.ru/">Назад</a>
+        <br /><img src="/icons/back.gif" alt="[PARENTDIR]"> <a href="/catalog-site.ru/">Назад</a><br />
     </div>
 </body>
 </html>
