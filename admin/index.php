@@ -50,7 +50,7 @@
       header("Location: index.php?goods=true");    
     }
 
-    $good = goods_get($link, $id);
+    $good = good_get($link, $id);
 
     include ("../views/good_admin_edit.php");
 
@@ -62,7 +62,7 @@
     header("Location: index.php?goods=true");    
   } else if($isGoods){
     $goods = goods_all($link);
-    $gcategoties = gcategories_get($link);
+    $categoties = good_categories_get($link);
 
     include ("../views/goods_admin.php");
   }
@@ -113,8 +113,9 @@
 
     header("Location: index.php");    
   } else if(!$isGoods){
+
     $categories = categories_all($link);
-    $goods = category_goods_all($link);//нада так
+    $goods = category_goods_get($link);
      
     include("../views/categories_admin.php");
   }

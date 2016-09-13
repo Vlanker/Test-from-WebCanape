@@ -32,7 +32,7 @@
             <td><?=$a['goods_number']?></td>
             <td><?=$a['goods_order'] != 0 ? 'Возможен' : 'Не возможен'?></td>
             <td>
-                <?php foreach($gcategoties as $b): ?>
+                <?php foreach($categoties as $b): ?>
                     <?=$a['goods_id'] == $b['goods_id'] ?'['.$b['category_title'].($b['category_active']?'(Актив.)]':'(Не актив.)]'):''?>
                 <?php endforeach; ?> 
             </td>
@@ -41,7 +41,7 @@
         </tr> 
         <?php endforeach; ?>  
         </table>  
-    </div>
+    </div><br /><br />
     <footer>
         Страница: <a href="#">В начало</a>  <a href="#">-</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">+</a> <a href="#">В конец</a>
     </footer>

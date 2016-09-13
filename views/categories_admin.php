@@ -23,23 +23,26 @@
             <th></th>
             <th></th>
         </tr>
-        <?php foreach($categories as $a): ?>
+        <?php foreach($categories as $c): ?>
         <tr>
-            <td><?=$a['category_title']?></td>
-            <td><?=$a['category_short_content']?></td>
-            <td><?=$a['category_content']?></td>
-            <td><?=$a['category_active']!=0?'Активна':'Не акативна'?></td>
+            <td><?=$c['category_title']?></td>
+            <td><?=$c['category_short_content']?></td>
+            <td><?=$c['category_content']?></td>
+            <td><?=$c['category_active'] !=0 ? 'Активна' : 'Не акативна'?></td>
             <td>
                 <?php foreach($goods as $g): ?>
-                    <?=$a['category_id'] == $g['category_id']? 'false' : 'true' //.$b['goods_title'].($b['goods_active']?'(Актив.)]':'(Не актив.)]'):''?>
-                <?php endforeach; ?> 
+                    <?=$c['category_id'] == $g['category_id'] ?  '['.$g['goods_title'].($g['goods_active'] != 0 ? '(Актив.)]' : '(Не актив.)]') : ''?>
+
+                        
+                <?php endforeach; 
+                ?> 
             </td>
-            <td><a href="index.php?action=edit&id=<?=$a['category_id']?>">Редактировать</a></td>
-            <td><a href="index.php?action=delete&id=<?=$a['category_id']?>">Удалить</a></td>
+            <td><a href="index.php?action=edit&id=<?=$c['category_id']?>">Редактировать</a></td>
+            <td><a href="index.php?action=delete&id=<?=$c['category_id']?>">Удалить</a></td>
         </tr> 
         <?php endforeach; ?>  
         </table>  
-    </div>
+    </div><br /><br />
     <footer>
         Страница: <a href="#">В начало</a>  <a href="#">-</a> <a href="#">1</a> <a href="#">2</a> <a href="#">3</a> <a href="#">+</a> <a href="#">В конец</a>
     </footer>
