@@ -1,4 +1,23 @@
 <?php
+/********** in ************/
+    function in_all($link){
+        $query = "SELECT category_goods.category_id, category.category_title, category.category_active, category_goods.goods_id, goods.goods_title, goods.goods_active
+                  FROM goods INNER JOIN (category INNER JOIN category_goods ON category.category_id = category_goods.category_id) ON goods.goods_id = category_goods.goods_id";
+        $result = mysqli_query($link, $query);
+        if (!$result){
+            die(mysqli_error($link));
+        }
+        
+        $n = mysqli_num_rows($result);
+        $in = array();
+        
+        for ($i = 0; $i < $n; $i++){
+            $row = mysqli_fetch_assoc($result);
+            $in[] = $row;
+        }
+        return $in;
+    }
+/********** end in ********/
 /********* categories *********/
     function categories_all($link){
         

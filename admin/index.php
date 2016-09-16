@@ -5,9 +5,9 @@
   $link = db_connect();
 
   if (isset($_GET['action'])){
-      $action = $_GET['action'];
+    $action = $_GET['action'];
   } else {
-      $action = "";
+    $action = "";
   }
 
   if (isset($_GET['goods'])){
@@ -17,21 +17,40 @@
   }
 
   if (isset($_GET['in'])){
-    $isGoods = $_GET['in'];
+    $isIn = $_GET['in'];
   } else {
-    $isGoods = "";
+    $isIn = "";
   }
-/********** in ************/
+
+  /********** in ************/
+  if (!$isGoods && $isIn && $action == "add"){
+    if(!empty($_POST)){            
+      good_new($link,
+               $_POST['category_id'],
+               $_POST['goods_id']);
+
+      //header("Location: index.php?in=true");    
+    }
+
+    include ("../views/in_admin.php");
+  }else if(!$isGoods && $isIn){
+    $data = in_all($link);  
+    $in = array();
+    for($i=0; count($data); $i++){
+       $in['category_title']
+      for($j=0; count($data)-1; $j++){
+        
+      }  
+    }
 
 
+    include ("../views/in_admin.php");
+  }
 
-/********** end in ********/
+  /********** end in ********/
 
-
-
-
-/********* goods *********/
-  if ($isGoods && $action == "add"){
+  /********* goods *********/
+  if ($isGoods && !$isIn && $action == "add"){
     if(!empty($_POST)){            
       good_new($link,
                $_POST['goods_title'],
@@ -45,7 +64,7 @@
     }
 
   include ("../views/good_admin.php");
-  } else if($isGoods && $action == "edit"){
+  } else if($isGoods && !$isIn && $action == "edit"){
     
     if(!isset($_GET['id'])){
         header("Location: index.php?goods=true");    
@@ -64,18 +83,16 @@
 
       header("Location: index.php?goods=true");    
     }
-
     $good = good_get($link, $id);
 
     include ("../views/good_admin_edit.php");
-
-  } else if($isGoods && $action == "delete"){
+  } else if($isGoods && !$isIn && $action == "delete"){
     $id = $_GET['id'];
 
     $good = good_delete($link, $id);   
 
     header("Location: index.php?goods=true");    
-  } else if($isGoods){
+  } else if($isGoods && !$isIn){
     $goods = goods_all($link);
     $categoties = good_categories_get($link);
 
@@ -85,7 +102,7 @@
 /*********** end goods **********/
 
 /*********** categories *********/
-  if (!$isGoods && $action == "add"){
+  if (!$isGoods && !$isIn && $action == "add"){
     if(!empty($_POST)){            
 
       category_new($link,
@@ -99,7 +116,7 @@
 
     include ("../views/category_admin.php");
 
-  } else if(!$isGoods && $action == "edit"){
+  } else if(!$isGoods && !$isIn && $action == "edit"){
     
     if(!isset($_GET['id'])){
         header("Location: index.php");    
@@ -121,13 +138,13 @@
 
     include ("../views/category_admin_edit.php");
 
-  } else if(!$isGoods && $action == "delete"){
+  } else if(!$isGoods && !$isIn && $action == "delete"){
     $id = $_GET['id'];
 
     $category = category_delete($link, $id);   
 
     header("Location: index.php");    
-  } else if(!$isGoods){
+  } else if(!$isGoods && !$isIn){
 
     $categories = categories_all($link);
     $goods = category_goods_get($link);

@@ -8,7 +8,7 @@
 <div class="container">
     <h1>Панель администратора: список категорий</h1>
     <h3><a href="index.php?goods=true">[Список товаров]</a> 
-        <a href="index.php??in=true">[Связи категорий с товарами]</a> 
+        <a href="index.php?in=true">[Связи категорий с товарами]</a> 
     </h3>
     <img src="/icons/back.gif" alt="[PARENTDIR]"> <a href="/catalog-site.ru">Главная</a><br /><br />
     <a href="index.php?action=add">Добавить категорию</a>
